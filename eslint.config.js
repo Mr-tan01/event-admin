@@ -7,6 +7,23 @@ export default [
   { files: ['**/*.{js,mjs,cjs,vue}'] },
   { languageOptions: { globals: globals.browser } },
   {
+    ignores: [
+      'node_modules/',
+      'dist',
+      'build/',
+      '*.zip',
+      'logs/',
+      'src/legacy-code.js',
+      '*.min.js',
+      '*.png',
+      '*.jpg',
+      '*.jpeg',
+      '*.gif',
+      '**/*.test.js',
+      '!src/index.js'
+    ]
+  },
+  {
     rules: {
       'vue/multi-word-component-names': [
         'warn',
