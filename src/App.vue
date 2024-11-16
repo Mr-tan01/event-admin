@@ -2,7 +2,7 @@
 
 <template>
   <div>
-    <div></div>
+    <div>我是app</div>
   </div>
 </template>
 
