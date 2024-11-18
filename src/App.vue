@@ -17,6 +17,10 @@ const countStore = useCountStore()
 
 <template>
   <div>
+    <router-view></router-view>
+
+    <hr />
+    <hr />
     <div>我是app</div>
     <el-button @click="$router.push('/home')">首页</el-button>
     <el-button @click="goList">列表</el-button>
