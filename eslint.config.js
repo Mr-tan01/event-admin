@@ -5,7 +5,8 @@ import pluginVue from 'eslint-plugin-vue'
 /** @type {import('eslint').Linter.Config[]} */
 export default [
   { files: ['**/*.{js,mjs,cjs,vue}'] },
-  { languageOptions: { globals: globals.browser } },
+  // 声明全局变量名, 解决 ElMessage 报错问题
+  { languageOptions: { globals: globals.browser, ElMessage: 'ElMessage' } },
   {
     ignores: [
       'node_modules/',
