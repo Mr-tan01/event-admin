@@ -24,13 +24,17 @@ export const useUseStore = defineStore(
     const setUser = (obj) => {
       user.value = obj
     }
+    const removeUser = () => {
+      user.value = {}
+    }
 
     return {
       token,
       setToken,
       removeToken,
       user,
-      getUser
+      getUser,
+      removeUser
     }
   },
   {

@@ -12,12 +12,32 @@ import {
 import avatar from '@/assets/default.png'
 import { useUseStore } from '@/stores'
 import { onMounted } from 'vue'
+import { useRouter } from 'vue-router'
 
 const userStore = useUseStore()
+const router = useRouter()
 
+//页面渲染立即获取用户信息
 onMounted(() => {
   userStore.getUser()
 })
+
+const handleCommand = async (key) => {
+  if (key === 'logout') {
+    //退出操作
+    await ElMessageBox.confirm('你确定要退出吗?', '温馨提示', {
+      confirmButtonText: '确认',
+      cancelButtonText: '取消',
+      type: 'warning'
+    })
+    userStore.removeToken() //清空token
+    userStore.removeUser() //清空用户信息
+    router.push('/login')
+  } else {
+    //跳转操作
+    router.push(`/user/${key}`)
+  }
+}
 </script>
 
 <template>
@@ -74,7 +94,7 @@ onMounted(() => {
             userStore.user.nickname || userStore.user.username
           }}</strong>
         </div>
-        <el-dropdown placement="bottom-end">
+        <el-dropdown placement="bottom-end" @command="handleCommand">
           <span class="el-dropdown__box">
             <el-avatar :src="userStore.user.user_pic || avatar" />
             <el-icon><CaretBottom /></el-icon>
