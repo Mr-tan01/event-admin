@@ -51,8 +51,16 @@ const onSuccess = (type) => {
   getListService()
 }
 //删除事件
-const onDeleteArticle = (row) => {
-  console.log(row)
+const onDeleteArticle = async (row) => {
+  //删除前提示
+  await ElMessageBox.confirm('确定删除吗？', '提示', {
+    confirmButtonText: '确定',
+    cancelButtonText: '取消',
+    type: 'warning'
+  })
+  await artDeleteService(row.id)
+  //删除成功后重新渲染
+  getListService()
 }
 
 //分页事件

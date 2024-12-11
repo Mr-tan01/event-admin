@@ -31,6 +31,7 @@ export const useUseStore = defineStore(
     return {
       token,
       setToken,
+      setUser,
       removeToken,
       user,
       getUser,
