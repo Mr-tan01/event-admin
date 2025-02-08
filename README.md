@@ -1,4 +1,4 @@
-# Vue3-event-admin
+# Vue3-Big-news-on-the-Paper
 
 This template should help get you started developing with Vue 3 in Vite.
 
